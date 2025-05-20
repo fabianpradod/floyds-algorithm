@@ -13,7 +13,7 @@ public class FloydAlgorithm {
 
     /**
      * Runs Floyd algorithm on the provided adjacency matrix
-     * After calling this, getDistance and getPathIndices will reflect shortest paths
+     * After calling this, getDistance and getPathIndixes will reflect shortest paths
      */
     public void compute(int[][] matrix) {
         int n = matrix.length;
@@ -55,9 +55,9 @@ public class FloydAlgorithm {
     }
 
     /**
-     * Reconstructs the path of indices from i to j 
+     * Reconstructs the path of Indixes from i to j 
      */
-    public List<Integer> getPathIndices(int i, int j) {
+    public List<Integer> getPathIndixes(int i, int j) {
         List<Integer> path = new ArrayList<>();
         if (next[i][j] == -1) {
             return path;

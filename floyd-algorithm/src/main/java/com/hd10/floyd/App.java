@@ -80,7 +80,7 @@ public class App {
     }
 
     private static void shortestPath(Scanner scanner, Graph graph, FloydAlgorithm floyd) {
-        // List available cities with indices
+        // List available cities with Indixes
         List<String> cities = graph.getCities();
         System.out.println("\nAvailable cities:");
         for (int idx = 0; idx < cities.size(); idx++) {
@@ -102,14 +102,14 @@ public class App {
 
         // Compute shortest paths on current graph
         floyd.compute(graph.getMatrix());
-        List<Integer> pathIndices = floyd.getPathIndices(origin, destination);
-        if (pathIndices.isEmpty()) {
+        List<Integer> pathIndixes = floyd.getPathIndixes(origin, destination);
+        if (pathIndixes.isEmpty()) {
             System.out.println("\nNo path found from " + cities.get(origin) + " to " + cities.get(destination));
             return;
         }
-        // Map indices to city names
+        // Map Indixes to city names
         List<String> pathCities = new ArrayList<>();
-        for (int i : pathIndices) {
+        for (int i : pathIndixes) {
             pathCities.add(cities.get(i));
         }
         int distance = floyd.getDistance(origin, destination);
