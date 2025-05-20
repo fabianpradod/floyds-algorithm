@@ -5,10 +5,18 @@ import java.util.*;
 
 public class FileParser {
 
+    // Existing method (keep for compatibility)
     public static List<Path> parse(String filename) throws IOException {
+        try (FileInputStream fis = new FileInputStream(filename)) {
+            return parse(fis);
+        }
+    }
+
+    // New method that accepts an InputStream
+    public static List<Path> parse(InputStream inputStream) throws IOException {
         List<Path> paths = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             while ((line = br.readLine()) != null) {
                 line = line.trim();

@@ -1,0 +1,7 @@
+Guatemala Mixco 5 7 10 15
+Guatemala SantaCatarina 10 12 15 20
+Guatemala VillaNueva 8 10 12 16
+Mixco SantaCatarina 6 8 11 14
+SantaCatarina VillaNueva 9 11 14 18
+Mixco Petapa 15 18 20 25
+Petapa VillaNueva 7 9 12 16

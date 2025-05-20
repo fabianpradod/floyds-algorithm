@@ -62,6 +62,13 @@ public class Graph {
     public List<String> getCities() {
         return Collections.unmodifiableList(cities);
     }
+    
+    /**
+     * Returns the original paths for reference
+     */
+    public List<Path> getOriginalPaths() {
+        return Collections.unmodifiableList(originalPaths);
+    }
 
     /**
      * Updates the travel time between two cities according to obstruction
@@ -81,12 +88,5 @@ public class Graph {
         Integer i = cityIndex.get(city1);
         Integer j = cityIndex.get(city2);
         return matrix[i][j];
-    }
-
-    /**
-     * Resets the graph matrix to normalTime weights
-     */
-    public void resetToNormal() {
-        buildMatrix();
     }
 }
