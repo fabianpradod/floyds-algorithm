@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class App {
     private static final String DATA = "logistica.txt";
@@ -26,6 +27,11 @@ public class App {
             while (!exit) {
                 printMenu();
                 int choice = readInt(scanner);
+                if (choice == -1) {
+                    System.out.println("\nInvalid option. Please try again.");
+                    continue;
+                }
+                
                 switch (choice) {
                     case 1:
                         shortestPath(scanner, graph, floyd);
@@ -60,11 +66,17 @@ public class App {
     }
 
     private static int readInt(Scanner scanner) {
-        while (!scanner.hasNextInt()) {
-            System.out.print("\nEnter a number: ");
-            scanner.next();
+        try {
+            if (scanner.hasNextInt()) {
+                return scanner.nextInt();
+            } else {
+                scanner.next(); 
+                return -1;
+            }
+        } catch (InputMismatchException e) {
+            scanner.next(); 
+            return -1;
         }
-        return scanner.nextInt();
     }
 
     private static void shortestPath(Scanner scanner, Graph graph, FloydAlgorithm floyd) {
@@ -76,8 +88,17 @@ public class App {
         }
         System.out.print("\nEnter origin city index: ");
         int origin = readInt(scanner);
+        if (origin < 0 || origin >= cities.size()) {
+            System.out.println("\nInvalid city index");
+            return;
+        }
+        
         System.out.print("Enter destination city index: ");
         int destination = readInt(scanner);
+        if (destination < 0 || destination >= cities.size()) {
+            System.out.println("\nInvalid city index");
+            return;
+        }
 
         // Compute shortest paths on current graph
         floyd.compute(graph.getMatrix());
@@ -116,7 +137,6 @@ public class App {
         System.out.print("\nSelect path number to modify: ");
         int pathIndex = readInt(scanner);
         
-        // Validate path selection
         if (pathIndex < 0 || pathIndex >= existingPaths.size()) {
             System.out.println("\nInvalid path selection");
             return;
@@ -135,6 +155,11 @@ public class App {
         System.out.println("5. Block route (infinity)\n");
         System.out.print("Enter choice: ");
         int weatherChoice = readInt(scanner);
+        
+        if (weatherChoice < 1 || weatherChoice > 5) {
+            System.out.println("\nInvalid choice");
+            return;
+        }
         
         int newTime;
         switch (weatherChoice) {
