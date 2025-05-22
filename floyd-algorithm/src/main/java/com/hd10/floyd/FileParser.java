@@ -1,7 +1,12 @@
 package com.hd10.floyd;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileParser {
 
@@ -24,7 +29,7 @@ public class FileParser {
                     continue;
                 }
                 String[] path = line.split("\\s+");
-                if (path.length != 6) {
+                if (path.length != 6) { /*expecting 6 fields */
                     throw new IllegalArgumentException(
                         "Expected 6 fields, got " + path.length + ": " + line);
                 }

@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * Represents an undirected graph of cities with travel times
- * Uses an adjacency matrix built from a list of Path objects
+ * Uses an adjacency matrix built from a list of Path objects, lista de obsjetos Path
  */
 public class Graph {
     private final Map<String, Integer> cityIndex = new LinkedHashMap<>();   // City names with their index in order of appearance

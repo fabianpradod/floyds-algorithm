@@ -9,7 +9,7 @@ public class Path {
     private final int snowTime;
     private final int stormTime;
 
-    public Path(String name,
+    public Path(String name, /*constructor */
                 String city1,
                 String city2,
                 int normalTime,
