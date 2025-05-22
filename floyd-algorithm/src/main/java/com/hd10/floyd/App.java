@@ -1,5 +1,13 @@
 package com.hd10.floyd;
 
+
+/*Universidad del valle de Guatemala, Algoritmos y estrucuta de Datos,
+ * Profesor: Douglas Barrios
+ * Estudiantes: Joel Nerio y Fabian Prado
+ * fecha: 22/05/2025
+ * Descripcion: Este programa implementa el algoritmo de Floyd para encontrar el camino más corto entre dos ciudades en un grafo.
+ * El grafo se representa mediante una matriz de adyacencia, y el programa permite al usuario interactuar con el grafo para encontrar caminos más cortos,
+ */
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
